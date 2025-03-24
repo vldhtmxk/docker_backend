@@ -59,6 +59,7 @@ jobs:
         sudo usermod -aG docker $USER
     - name: 도커 세션 로드하기
       run: |
+        cd /home/ubuntu/backend/docker_backend
         sudo chmod 666 /var/run/docker.sock
         
     - name: 셀상의 EC2 접근과 도커 compose실행
