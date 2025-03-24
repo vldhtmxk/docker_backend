@@ -2,6 +2,8 @@ FROM gradle:7.2.0-jdk as builder
 
 WORKDIR /app
 
+VOLUME ["/home/gradle/.gradle"]
+
 COPY . .
 
 RUN gradle clean build --no-daemon
