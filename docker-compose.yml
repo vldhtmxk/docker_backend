@@ -13,14 +13,16 @@ services:
     restart: always
 
   backend:
+
     build:
+      context: .
       dockerfile: Dockerfile
     container_name: backend
     networks:
       - sist_net
     #environment:
     #  - SPRING_JPA_PROPERTIES_HIBERNATE_DIALECT=org.hibernate.dialect.MySQL8Dialect
-    #  - SPRING_JPA_HIVERNATE_DDL_AUTO=update
+    #  - SPRING_JPA_HIBERNATE_DDL_AUTO=update
     ports:
       - "8080:8080"
     depends_on:
@@ -28,5 +30,4 @@ services:
     restart: always
 networks:
   sist_net:
-    driver:
-      bridge
+    driver: bridge
