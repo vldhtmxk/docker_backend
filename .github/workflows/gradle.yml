@@ -66,9 +66,7 @@ jobs:
       run: |
         ssh -o StrictHostKeyChecking=no ubuntu@${{ secrets.HOST }} << 'EOF'
           sudo chmod -R 755 /home/ubuntu/backend
-          sudo chmod -R 755 /home/ubuntu/backend/docker_backend
-          sudo chown -R ubuntu:ubuntu /home/ubuntu/backend
           cd /home/ubuntu/backend/docker_backend
-          docker-compose down
-          docker-compose up -d --build
+          sudo docker-compose down
+          sudo docker-compose up -d --build
         EOF
