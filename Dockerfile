@@ -6,7 +6,7 @@ VOLUME ["/home/gradle/.gradle"]
 
 COPY . .
 
-RUN gradle clean build --no-daemon
+RUN ./gradlew clean build --no-daemon
 
 FROM openjdk:17
 
