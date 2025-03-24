@@ -50,7 +50,7 @@ jobs:
         restore-keys: |
           ${{ runner.os }}-gradle
     - name: chmod +x gradlew
-      run: chmod +x gradelw
+      run: chmod +x gradlew
     - name: Build with Gradle Wrapper
       run: ./gradlew clean build
 
