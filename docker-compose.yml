@@ -1,0 +1,32 @@
+services:
+  mysql8:
+    image: mysql:8.0
+    networks:
+      - sist_net
+    volumes:
+      - ./db/conf.d:/etc/mysql/conf.d
+      - ./db/data:/var/lib/mysql
+      - ./db/initdb.d:/docker-entrypoint-initdb.d
+    env_file: .env
+    ports:
+      - "3307:3306"
+    restart: always
+
+  backend:
+    build:
+      dockerfile: Dockerfile
+    container_name: backend
+    networks:
+      - sist_net
+    #environment:
+    #  - SPRING_JPA_PROPERTIES_HIBERNATE_DIALECT=org.hibernate.dialect.MySQL8Dialect
+    #  - SPRING_JPA_HIVERNATE_DDL_AUTO=update
+    ports:
+      - "8080:8080"
+    depends_on:
+      - mysql8
+    restart: always
+networks:
+  sist_net:
+    driver:
+      bridge
