@@ -12,10 +12,7 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
-    - name: gradle 볼륨 권한 주기
-      run: |
-        sudo chown -R gradle:gradle /home/gradle/.gradle
-        sudo chmod -R 777 /home/gradle/.gradle
+
     - name: Set up JDK 17
       uses: actions/setup-java@v4
       with:
