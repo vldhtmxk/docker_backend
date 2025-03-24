@@ -65,6 +65,7 @@ jobs:
     - name: 셀상의 EC2 접근과 도커 compose실행
       run: |
         ssh -o StrictHostKeyChecking=no ubuntu@${{ secrets.HOST }} << 'EOF'
+          sudo chmod -R 755 /home/ubuntu/backend/docker_backend
           cd /home/ubuntu/backend/docker_backend
           docker-compose down
           docker-compose up -d --build
