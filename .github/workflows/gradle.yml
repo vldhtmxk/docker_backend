@@ -29,7 +29,7 @@ jobs:
     - name: 디렉토리 생성
       run: |
         sudo mkdir -p /home/ubuntu/backend/docker_backend/db
-        sudo chmod 666 /home/ubuntu/backend/docker_backend/db
+        sudo chmod -R 666 /home/ubuntu/backend
 
 
     
